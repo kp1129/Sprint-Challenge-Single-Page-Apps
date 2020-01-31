@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CharacterCard from "./CharacterCard";
 import SearchForm from "./SearchForm";
+import "./CharacterList.css";
 
 export default function CharacterList() {
   const [data, setData] = useState([]);
@@ -9,10 +10,10 @@ export default function CharacterList() {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    console.log("im here");
     axios
       .get("https://rickandmortyapi.com/api/character/")
       .then(res => {
+        console.log(res.data.results);
         const characters = res.data.results.filter(character =>
           character.name.toLowerCase().includes(query.toLowerCase())
         );
@@ -27,11 +28,13 @@ export default function CharacterList() {
 
   return (
     <section className="character-list">
-      <SearchForm query={query} handleInputChange={handleInputChange}/>
+      <SearchForm query={query} handleInputChange={handleInputChange} />
 
-      {data.map(character => {
-        return <CharacterCard data={character} id={character.id}/>
-      })}
+      <div className="characters-displayed">
+        {data.map(character => {
+          return <CharacterCard data={character} id={character.id} />;
+        })}
+      </div>
     </section>
   );
 }

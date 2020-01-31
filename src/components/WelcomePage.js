@@ -1,4 +1,5 @@
 import React from "react";
+import "./WelcomePage.css";
 
 export default function WelcomePage() {
   return (
@@ -10,6 +11,7 @@ export default function WelcomePage() {
           src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
           alt="rick"
         />
+        <p>Head over to the Characters page to see your favorite characters!</p>
       </header>
     </section>
   );

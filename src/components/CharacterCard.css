@@ -1,0 +1,15 @@
+.character-card-container {
+  width: 320px;
+}
+
+.character-card-image {
+  max-width: 100%;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-subtitle {
+  margin: 3px 0 !important;
+}
